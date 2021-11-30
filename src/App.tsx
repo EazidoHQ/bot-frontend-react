@@ -4,7 +4,7 @@ import ChatList from './components/chat/List';
 import Input from './components/chat/Input';
 import './App.css';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className='h-screen'>
       <Header />
