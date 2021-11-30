@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='h-screen border-2 border-red-500'>
+    <div className='h-screen'>
       <Header />
       <ChatList />
       <Input />
