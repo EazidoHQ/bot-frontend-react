@@ -3,6 +3,15 @@ interface IProps {
   message: IMessage;
 }
 export default function Message({ message }: IProps) {
+  let input: any = null;
+  if (message.response) {
+    input = (
+      <input
+        type={message.response.expected}
+        className='border-2 border-gray-200 p-2'
+      />
+    );
+  }
   return (
     <div className={`flex items-end w-60 ${message.sender ? 'ml-auto ' : ''}`}>
       {!message.sender ? (
@@ -19,6 +28,7 @@ export default function Message({ message }: IProps) {
       >
         {message.message}
       </p>
+      {input}
     </div>
   );
 }
