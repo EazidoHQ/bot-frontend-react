@@ -4,48 +4,13 @@ import { IMessage } from '../../types/interface';
 export default function ChatList() {
   const messages: Array<IMessage> = [
     {
-      message: 'hello',
-      sender: false,
+      is_user: false,
+      message: 'Hello, hi',
+      expect_response: false,
       response: {
-        expected: 'email',
+        type: 'email',
         question: 'what is your name',
       },
-    },
-    {
-      message: 'Yo! who are you what do you want',
-      sender: true,
-    },
-    {
-      message: 'hello',
-      sender: false,
-    },
-    {
-      message: 'Yo! who are you what do you want',
-      sender: true,
-    },
-    {
-      message: 'hello',
-      sender: false,
-    },
-    {
-      message: 'Yo! who are you what do you want',
-      sender: true,
-    },
-    {
-      message: 'hello',
-      sender: false,
-    },
-    {
-      message: 'Yo! who are you what do you want',
-      sender: true,
-    },
-    {
-      message: 'hello',
-      sender: false,
-    },
-    {
-      message: 'Yo! who are you what do you want',
-      sender: true,
     },
   ];
 

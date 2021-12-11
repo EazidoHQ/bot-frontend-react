@@ -1,10 +1,11 @@
 export interface IMessage {
+  is_user: boolean;
   message: string;
-  sender: boolean;
+  expect_response?: boolean;
   response?: IMessageResponse;
 }
 
 export interface IMessageResponse {
-  expected: 'text' | 'email' | 'url';
+  type: 'text' | 'email' | 'url';
   question: string;
 }
