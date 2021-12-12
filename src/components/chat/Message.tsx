@@ -1,4 +1,6 @@
+import Button from './../Button';
 import { IMessage } from '../../types/interface';
+
 interface IProps {
   message: IMessage;
 }
@@ -34,27 +36,29 @@ export default function Message({ message }: IProps) {
       </div>
     </div>
   );
+  let Suggestions = message?.suggestions?.map((suggestion) => (
+    <Button children={suggestion} onClick={() => console.log('clicked')} />
+  ));
   const MessageComponent = (
-    <div
-      className={`flex items-end max-w-sm  ${
-        message.is_user ? 'ml-auto ' : ''
-      }`}
-    >
-      {!message.is_user ? (
-        <div className='w-8 h-8 rounded-full bg-gray-400  flex-shrink-0'></div>
-      ) : (
-        ''
-      )}
-      <div
-        className={`rounded-xl p-4 ml-2  ${
-          !message.is_user
-            ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
-            : 'bg-pink-600 text-white rounded-br-none ml-auto'
-        }`}
-      >
-        <p className='text-sm'>{message.message}</p>
-        {message.expect_response && !message.is_user ? Input : ''}
+    <div className='max-w-sm'>
+      <div className={`flex items-end   ${message.is_user ? 'ml-auto ' : ''}`}>
+        {!message.is_user ? (
+          <div className='w-8 h-8 rounded-full bg-gray-400  flex-shrink-0'></div>
+        ) : (
+          ''
+        )}
+        <div
+          className={`rounded-xl p-4 ml-2  ${
+            !message.is_user
+              ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
+              : 'bg-pink-600 text-white rounded-br-none ml-auto'
+          }`}
+        >
+          <p className='text-sm'>{message.message}</p>
+          {message.expect_response && !message.is_user ? Input : ''}
+        </div>
       </div>
+      {message?.suggestions?.length ? Suggestions : ''}
     </div>
   );
   return MessageComponent;
