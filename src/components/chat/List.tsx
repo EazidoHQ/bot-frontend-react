@@ -7,6 +7,7 @@ export default function ChatList() {
       is_user: false,
       message: 'Hello, hi',
       expect_response: false,
+      suggestions: ['Show me what you can do'],
     },
     {
       is_user: false,

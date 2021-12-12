@@ -3,6 +3,7 @@ export interface IMessage {
   message: string;
   expect_response?: boolean;
   response?: IMessageResponse;
+  suggestions?: Array<string>;
 }
 
 export interface IMessageResponse {

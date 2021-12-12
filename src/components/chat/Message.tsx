@@ -16,10 +16,11 @@ export default function Message({ message }: IProps) {
         <button>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='stroke-current flex-shrink-0'
-            width='16'
-            height='16'
+            className='flex-shrink-0'
+            width='18'
+            height='18'
             viewBox='0 0 24 24'
+            stroke='#db2777'
             stroke-width='1.5'
             fill='none'
             stroke-linecap='round'
@@ -35,7 +36,7 @@ export default function Message({ message }: IProps) {
   );
   const MessageComponent = (
     <div
-      className={`flex items-end max-w-md  ${
+      className={`flex items-end max-w-sm  ${
         message.is_user ? 'ml-auto ' : ''
       }`}
     >
@@ -45,7 +46,7 @@ export default function Message({ message }: IProps) {
         ''
       )}
       <div
-        className={`rounded-xl  p-3 ml-2  ${
+        className={`rounded-xl p-4 ml-2  ${
           !message.is_user
             ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
             : 'bg-pink-600 text-white rounded-br-none ml-auto'
