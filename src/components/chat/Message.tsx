@@ -1,5 +1,6 @@
 import Button from './../Button';
 import { IMessage } from '../../types/interface';
+import SendIcon from '../icon/SendIcon';
 
 interface IProps {
   message: IMessage;
@@ -15,29 +16,21 @@ export default function Message({ message }: IProps) {
           type={message?.response?.type}
           className='focus:outline-none bg-transparent w-full'
         />
-        <button>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='flex-shrink-0'
-            width='18'
-            height='18'
-            viewBox='0 0 24 24'
-            stroke='#db2777'
-            stroke-width='1.5'
-            fill='none'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-          >
-            <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-            <line x1='10' y1='14' x2='21' y2='3' />
-            <path d='M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5' />
-          </svg>
-        </button>
+        <Button
+          children={<SendIcon />}
+          buttonClass='ml-1'
+          onClick={() => console.log('clicked')}
+        />
       </div>
     </div>
   );
-  let Suggestions = message?.suggestions?.map((suggestion) => (
-    <Button children={suggestion} onClick={() => console.log('clicked')} />
+  let Suggestions = message?.suggestions?.map((suggestion, index) => (
+    <Button
+      children={suggestion}
+      buttonClass='px-4 py-2 mt-2 ml-2 bg-pink-600 rounded-md text-white'
+      onClick={() => console.log('clicked')}
+      key={index}
+    />
   ));
   const MessageComponent = (
     <div className='max-w-sm'>
@@ -49,20 +42,23 @@ export default function Message({ message }: IProps) {
         ) : (
           ''
         )}
-        <div>
-          <div
-            className={`rounded-xl p-4 ml-2  ${
-              !message.is_user
-                ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
-                : 'bg-pink-600 text-white rounded-br-none ml-auto'
-            }`}
-          >
-            <p className='text-sm'>{message.message}</p>
-            {message.expect_response && !message.is_user ? Input : ''}
-          </div>
-          {message?.suggestions?.length ? Suggestions : ''}
+        <div
+          className={`rounded-xl p-4   ${
+            !message.is_user
+              ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
+              : 'bg-pink-600 text-white rounded-br-none ml-auto'
+          }`}
+        >
+          <p className='text-sm'>{message.message}</p>
+          {message.expect_response && !message.is_user ? Input : ''}
         </div>
       </div>
+      {message?.suggestions?.length && (
+        <div className='flex'>
+          <div className='h-8 w-8'></div>
+          {Suggestions}
+        </div>
+      )}
     </div>
   );
   return MessageComponent;

@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import Header from './components/Header';
 import ChatList from './components/chat/List';
-import Input from './components/chat/Input';
+import ChatBox from './components/chat/ChatBox';
 import './App.css';
 
 function App(): JSX.Element {
@@ -9,7 +9,7 @@ function App(): JSX.Element {
     <div className='h-screen'>
       <Header />
       <ChatList />
-      <Input />
+      <ChatBox />
     </div>
   );
 }

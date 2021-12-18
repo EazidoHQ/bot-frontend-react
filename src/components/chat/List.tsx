@@ -7,7 +7,7 @@ export default function ChatList() {
       is_user: false,
       message: 'Hello, hi',
       expect_response: false,
-      suggestions: ['Show me what you can do'],
+      suggestions: ['Show me'],
     },
     {
       is_user: false,
@@ -33,7 +33,7 @@ export default function ChatList() {
   return (
     <div
       className=' w-full bg-gray-100 p-3 overflow-y-scroll'
-      style={{ height: '80%' }}
+      style={{ height: '82%' }}
     >
       {messages.map((message, index) => (
         <div className='mb-4' key={index}>
