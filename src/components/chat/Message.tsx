@@ -41,24 +41,28 @@ export default function Message({ message }: IProps) {
   ));
   const MessageComponent = (
     <div className='max-w-sm'>
-      <div className={`flex items-end   ${message.is_user ? 'ml-auto ' : ''}`}>
+      <div
+        className={`flex items-end   ${message.is_user ? 'justify-end ' : ''}`}
+      >
         {!message.is_user ? (
           <div className='w-8 h-8 rounded-full bg-gray-400  flex-shrink-0'></div>
         ) : (
           ''
         )}
-        <div
-          className={`rounded-xl p-4 ml-2  ${
-            !message.is_user
-              ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
-              : 'bg-pink-600 text-white rounded-br-none ml-auto'
-          }`}
-        >
-          <p className='text-sm'>{message.message}</p>
-          {message.expect_response && !message.is_user ? Input : ''}
+        <div>
+          <div
+            className={`rounded-xl p-4 ml-2  ${
+              !message.is_user
+                ? 'ml-2 bg-gray-200 rounded-bl-none w-full'
+                : 'bg-pink-600 text-white rounded-br-none ml-auto'
+            }`}
+          >
+            <p className='text-sm'>{message.message}</p>
+            {message.expect_response && !message.is_user ? Input : ''}
+          </div>
+          {message?.suggestions?.length ? Suggestions : ''}
         </div>
       </div>
-      {message?.suggestions?.length ? Suggestions : ''}
     </div>
   );
   return MessageComponent;
