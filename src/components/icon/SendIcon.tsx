@@ -25,6 +25,7 @@ const SendIcon: React.FC<Props> = ({
       fill={fill}
       strokeLinecap='round'
       strokeLinejoin='round'
+      style={{ transform: 'rotateZ(45deg)' }}
     >
       <path stroke='none' d='M0 0h24v24H0z' fill='none' />
       <line x1='10' y1='14' x2='21' y2='3' />
