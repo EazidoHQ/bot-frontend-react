@@ -15,7 +15,7 @@ export default function ChatBox() {
       />
       <input
         type='text'
-        className='border-1 border-gray-200 rounded-full w-5/6 py-2 ml-2 text-sm'
+        className='border-1 border-gray-200 rounded-full w-5/6 py-2 px-2 ml-2 text-sm'
         style={{ borderWidth: '1px' }}
         placeholder='Type here .....'
       />
