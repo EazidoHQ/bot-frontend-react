@@ -1,3 +1,5 @@
+import Avatar from './Avatar';
+
 export default function Header() {
   return (
     <header
@@ -5,7 +7,7 @@ export default function Header() {
       style={{ height: '10%' }}
     >
       <div className='flex items-center'>
-        <div className='w-12 h-12 rounded-full bg-gray-200'></div>
+        <Avatar />
         <div className='ml-2'>
           <h5 className='text-white text-sm font-semibold'>Olly, Rex</h5>
           <p className='text-xs text-gray-200 mt-1 mb-0'>
